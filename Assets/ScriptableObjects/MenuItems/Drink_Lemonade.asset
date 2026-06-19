@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 053119c9fe84bcb4181fb9ef947c085f, type: 3}
   m_Name: Drink_Lemonade
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Strawberry Lemonade
   itemIcon: {fileID: 0}
-  category: 0
-  basePrice: 0
-  requiredProcesses: 
-  customizationOptions: []
+  category: 4
+  basePrice: 4.29
+  requiredProcesses: 04000000
+  customizationOptions:
+  - optionName: No Ice
+    isDefault: 0
+  - optionName: Extra Ice
+    isDefault: 0

@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 053119c9fe84bcb4181fb9ef947c085f, type: 3}
   m_Name: Side_FrenchFries
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: French Fries
   itemIcon: {fileID: 0}
-  category: 0
-  basePrice: 0
-  requiredProcesses: 
-  customizationOptions: []
+  category: 2
+  basePrice: 2.99
+  requiredProcesses: 0200000005000000
+  customizationOptions:
+  - optionName: Extra Crispy
+    isDefault: 0
+  - optionName: No Salt
+    isDefault: 0

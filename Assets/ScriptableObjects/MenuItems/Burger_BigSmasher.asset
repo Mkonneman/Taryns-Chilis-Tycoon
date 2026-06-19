@@ -12,9 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 053119c9fe84bcb4181fb9ef947c085f, type: 3}
   m_Name: Burger_BigSmasher
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Big Smasher Burger
   itemIcon: {fileID: 0}
   category: 0
-  basePrice: 0
-  requiredProcesses: 
-  customizationOptions: []
+  basePrice: 12.99
+  requiredProcesses: 00000000010000000000000005000000
+  customizationOptions:
+  - optionName: Extra Cheese
+    isDefault: 0
+  - optionName: No Onions
+    isDefault: 0
+  - optionName: No Ketchup
+    isDefault: 0
+  - optionName: No Pickles
+    isDefault: 0
+  - optionName: No Cheese
+    isDefault: 0
+  - optionName: Extra Onions
+    isDefault: 0
