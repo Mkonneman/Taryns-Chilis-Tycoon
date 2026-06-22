@@ -14,16 +14,19 @@ public class TestManager : MonoBehaviour
     [Header("Drag the OrderTicketUI here")]
     public OrderTicketUI orderTicketUI;
 
+    [Header("Drag the GrillStationUI here")]
+    public GrillStationUI grillStationUI;
+
     private Order testOrder;
 
     void Start()
     {
         // Build a test order with all three items
-        List<MenuItem> menuItems = new List<MenuItem> 
-        { 
-            burgerMenuItem, 
-            friesMenuItem, 
-            drinkMenuItem 
+        List<MenuItem> menuItems = new List<MenuItem>
+        {
+            burgerMenuItem,
+            friesMenuItem,
+            drinkMenuItem
         };
         testOrder = new Order(menuItems);
 
@@ -31,31 +34,17 @@ public class TestManager : MonoBehaviour
         testOrder.items[0].requestedCustomizations.Add("No Onions");
         testOrder.items[0].requestedCustomizations.Add("Extra Cheese");
 
-        Debug.Log($"Created test order with {testOrder.items.Count} items.");
-
-        // Display the order on the ticket UI
+        // Display the order on the ticket
         if (orderTicketUI != null)
-        {
             orderTicketUI.DisplayOrder(testOrder);
-        }
-        else
-        {
-            Debug.LogWarning("OrderTicketUI not assigned in TestManager!");
-        }
 
-        // Try assigning items to the grill station
-        foreach (OrderItem item in testOrder.items)
+        // Try putting the fries into the grill station
+        // (fries need FryTimer which GrillStation supports)
+        OrderItem friesItem = testOrder.items[1];
+        if (grillStationUI != null)
         {
-            ProcessType? current = item.GetCurrentProcess();
-            if (current.HasValue && grillStation.SupportsProcess(current.Value))
-            {
-                bool assigned = grillStation.TryAssignItem(item);
-                Debug.Log($"Assigned {item.menuItem.itemName} ({current.Value}) to GrillStation: {assigned}");
-            }
-            else
-            {
-                Debug.Log($"{item.menuItem.itemName} needs {current} - not handled by GrillStation.");
-            }
+            bool assigned = grillStationUI.TryAddItem(friesItem);
+            Debug.Log($"Assigned fries to grill station: {assigned}");
         }
     }
 }
